@@ -1,0 +1,130 @@
+% Books database
+book('The Catcher in the Rye', 'Fiction', 'J.D. Salinger').
+book('Harry Potter and the Philosopher\'s Stone', 'Fantasy', 'J.K. Rowling').
+book('The Great Gatsby', 'Fiction', 'F. Scott Fitzgerald').
+book('War and Peace', 'Historical Fiction', 'Leo Tolstoy').
+book('The Hobbit', 'Fantasy', 'J.R.R. Tolkien').
+book('To Kill a Mockingbird', 'Fiction', 'Harper Lee').
+book('1984', 'Dystopian', 'George Orwell').
+book('Pride and Prejudice', 'Romance', 'Jane Austen').
+book('One Hundred Years of Solitude', 'Magical Realism', 'Gabriel Garcia Marquez').
+book('The Lord of the Rings', 'Fantasy', 'J.R.R. Tolkien').
+book('The Da Vinci Code', 'Mystery', 'Dan Brown').
+book('The Hunger Games', 'Science Fiction', 'Suzanne Collins').
+book('The Alchemist', 'Fantasy', 'Paulo Coelho').
+book('The Shining', 'Horror', 'Stephen King').
+book('The Girl with the Dragon Tattoo', 'Mystery', 'Stieg Larsson').
+book('The Chronicles of Narnia', 'Fantasy', 'C.S. Lewis').
+book('The Road', 'Post-apocalyptic', 'Cormac McCarthy').
+book('The Fault in Our Stars', 'Young Adult', 'John Green').
+book('The Silence of the Lambs', 'Thriller', 'Thomas Harris').
+
+% Year of release
+year('The Catcher in the Rye', 1951).
+
+year('Harry Potter and the Philosopher\'s Stone', 1997).
+year('The Great Gatsby', 1925).
+year('War and Peace', 1869).
+year('The Hobbit', 1937).
+year('To Kill a Mockingbird', 1960).
+year('1984', 1949).
+year('Pride and Prejudice', 1813).
+year('One Hundred Years of Solitude', 1967).
+year('The Lord of the Rings', 1954).
+year('The Da Vinci Code', 2003).
+year('The Hunger Games', 2008).
+year('The Alchemist', 1988).
+year('The Shining', 1977).
+year('The Girl with the Dragon Tattoo', 2005).
+year('The Chronicles of Narnia', 1950).
+year('The Road', 2006).
+year('The Fault in Our Stars', 2012).
+year('The Silence of the Lambs', 1988).
+
+% Author
+author('The Catcher in the Rye', 'J.D. Salinger').
+author('Harry Potter and the Philosopher\'s Stone', 'J.K. Rowling').
+author('The Great Gatsby', 'F. Scott Fitzgerald').
+author('War and Peace', 'Leo Tolstoy').
+author('The Hobbit', 'J.R.R. Tolkien').
+author('To Kill a Mockingbird', 'Harper Lee').
+author('1984', 'George Orwell').
+author('Pride and Prejudice', 'Jane Austen').
+author('One Hundred Years of Solitude', 'Gabriel Garcia Marquez').
+author('The Lord of the Rings', 'J.R.R. Tolkien').
+author('The Da Vinci Code', 'Dan Brown').
+author('The Hunger Games', 'Suzanne Collins').
+author('The Alchemist', 'Paulo Coelho').
+author('The Shining', 'Stephen King').
+
+author('The Girl with the Dragon Tattoo', 'Stieg Larsson').
+author('The Chronicles of Narnia', 'C.S. Lewis').
+author('The Road', 'Cormac McCarthy').
+author('The Fault in Our Stars', 'John Green').
+author('The Silence of the Lambs', 'Thomas Harris').
+
+% Country of origin
+country('The Catcher in the Rye', 'United States').
+country('Harry Potter and the Philosopher\'s Stone', 'United Kingdom').
+country('The Great Gatsby', 'United States').
+country('War and Peace', 'Russia').
+country('The Hobbit', 'United Kingdom').
+country('To Kill a Mockingbird', 'United States').
+country('1984', 'United Kingdom').
+country('Pride and Prejudice', 'United Kingdom').
+country('One Hundred Years of Solitude', 'Colombia').
+country('The Lord of the Rings', 'United Kingdom').
+country('The Da Vinci Code', 'United States').
+country('The Hunger Games', 'United States').
+country('The Alchemist', 'Brazil').
+country('The Shining', 'United States').
+country('The Girl with the Dragon Tattoo', 'Sweden').
+country('The Chronicles of Narnia', 'United Kingdom').
+country('The Road', 'United States').
+country('The Fault in Our Stars', 'United States').
+country('The Silence of the Lambs', 'United States').
+
+% Readers number
+readers('The Catcher in the Rye', 50000000).
+readers('Harry Potter and the Philosopher\'s Stone', 120000000).
+readers('The Great Gatsby', 25000000).
+readers('War and Peace', 20000000).
+readers('The Hobbit', 100000000).
+readers('To Kill a Mockingbird', 40000000).
+
+readers('1984', 60000000).
+readers('Pride and Prejudice', 30000000).
+readers('One Hundred Years of Solitude', 45000000).
+readers('The Lord of the Rings', 150000000).
+readers('The Da Vinci Code', 80000000).
+readers('The Hunger Games', 65000000).
+readers('The Alchemist', 65000000).
+readers('The Shining', 30000000).
+readers('The Girl with the Dragon Tattoo', 45000000).
+readers('The Chronicles of Narnia', 120000000).
+readers('The Road', 30000000).
+readers('The Fault in Our Stars', 40000000).
+readers('The Silence of the Lambs', 30000000).
+Rules start here:
+% Rule for recommending books of a specific genre
+recommend_genre(Genre, Title) :-
+book(Title, Genre, _).
+
+% Example query: recommend science fiction books
+% ?- recommend_genre('Science Fiction', Title).
+
+% Rule for recommending books by a specific author
+recommend_author(Author, Title) :-
+book(Title, Author).
+
+% Example query: recommend books by Jane Austen
+?- author(Title, 'Jane Austen').
+
+% Rule for recommending books based on readership
+recommend_readership(MinReaders, Title) :-
+readers(Title, Readers),
+Readers >= MinReaders.
+
+% Example query: recommend books with more than 50 million readers
+
+% ?- recommend_readership(50000000, Title).
